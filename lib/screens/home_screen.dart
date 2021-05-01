@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:in_covid/models/city_names.dart';
+import 'package:in_covid/widgets/main_drawer.dart';
 
 import '../widgets/home_screen_tiles.dart';
 
@@ -18,10 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
   // Image img;
 
   // @override
-  void initState() {
-    setState(() {});
-    super.initState();
-  }
+  // void initState() {
+  //   setState(() {});
+  //   super.initState();
+  // }
 
   // @override
   // void didChangeDependencies() {
@@ -44,7 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontFamily: "Montserrat"),
         ),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: MainDrawer(),
+      ),
       body: Column(children: [
         Container(
           decoration: BoxDecoration(
@@ -53,7 +56,8 @@ class _HomeScreenState extends State<HomeScreen> {
           margin: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           child: ClipRRect(
             child: Container(
-              child: img,
+              child:
+                  img, /////////////////////////////////CHANGE TO STATIC////////////////////////////////////
               height: 180,
               width: double.infinity,
               // fit: BoxFit.cover,
@@ -74,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   data[index]["State"],
                   data[index]["State Image"],
                   data[index]["State API"],
-                  data[index]["State Graph"]));
+                  data[index]["State Graph"],
+                  data));
             },
             padding: EdgeInsets.all(25),
             // children: STATES

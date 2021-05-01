@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:in_covid/screens/how_to_use_screen.dart';
+import 'package:in_covid/screens/home_screen_splash_screen.dart';
 import 'package:in_covid/screens/hospitals_screen.dart';
 import 'package:in_covid/screens/intro_screen.dart';
+import 'package:in_covid/screens/service_provider_details.dart';
 import 'package:in_covid/screens/service_providers_screen.dart';
 import 'package:in_covid/screens/services_screen.dart';
 import 'package:in_covid/screens/splash_screen.dart';
@@ -27,6 +30,9 @@ class MyApp extends StatelessWidget {
         ServiceProvidersScreen.routeName: (ctx) => ServiceProvidersScreen(),
         HospitalsScreen.routeName: (ctx) => HospitalsScreen(),
         SplashScreen.routeName: (ctx) => SplashScreen(),
+        HomeScreenSplashScreen.routeName: (ctx) => HomeScreenSplashScreen(),
+        ServiceProviderDetails.routeName: (ctx) => ServiceProviderDetails(),
+        HowToUse.routeName: (ctx) => HowToUse(),
       },
     );
   }

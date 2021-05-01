@@ -28,9 +28,7 @@ class _ServicesScreenTilesState extends State<ServicesScreenTiles> {
     http.Response response = await http.get(Uri.parse(widget.stateUrl),
         headers: {"Accept": "application/json"});
 
-    this.setState(() {
-      hospitals = json.decode(response.body);
-    });
+    hospitals = json.decode(response.body);
   }
 
   void nextScreen(BuildContext context) {
@@ -39,12 +37,17 @@ class _ServicesScreenTilesState extends State<ServicesScreenTiles> {
   }
 
   void hospitalScreen(BuildContext context) {
+    print(hospitals);
     // Navigator.of(context).pushNamed(HospitalsScreen.routeName,
     //     arguments: {"state": widget.state, "StateHospitals": hospitals});
   }
 
-  void initState() {
-    super.initState();
+  // void initState() {
+  //   getHospitalsData();
+  //   super.initState();
+  // }
+
+  void didChangeDependencies() {
     getHospitalsData();
   }
 

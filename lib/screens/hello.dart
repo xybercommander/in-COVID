@@ -37,16 +37,11 @@ class _IntroScreenState extends State<IntroScreen> {
     gotImage = true;
   }
 
-  void initFunctions() async {
-    imgLogo = await Image.asset("assets/images/logo.png");
-    getDataData();
-  }
-
   @override
   void initState() {
-    initFunctions();
+    getDataData();
     getImgData();
-    // imgLogo = Image.asset("assets/images/logo.png");
+    imgLogo = Image.asset("assets/images/logo.png");
     super.initState();
   }
 
@@ -60,9 +55,7 @@ class _IntroScreenState extends State<IntroScreen> {
     precacheImage(AssetImage("assets/images/logo.png"), context);
 
     Future.delayed(const Duration(seconds: 5), () {
-      img = Image(
-          image: CachedNetworkImageProvider(imageLink[0]
-              ["graph"])); ///////////////////////VVVVVVVV IMPORTANT~~
+      img = Image(image: CachedNetworkImageProvider(imageLink[0]["graph"]));
       Navigator.of(context).pushReplacementNamed(HomeScreen.routeName,
           arguments: {"data": data, "img": img});
     });

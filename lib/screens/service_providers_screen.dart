@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:in_covid/widgets/main_drawer.dart';
 import 'package:in_covid/widgets/service_providers_screen_tiles.dart';
 
 class ServiceProvidersScreen extends StatefulWidget {
@@ -30,7 +31,9 @@ class _ServiceProvidersScreenState extends State<ServiceProvidersScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: MainDrawer(),
+      ),
       body: Column(
         children: [
           Container(
@@ -46,7 +49,14 @@ class _ServiceProvidersScreenState extends State<ServiceProvidersScreen> {
           Expanded(
             child: Container(
               margin: EdgeInsets.only(top: 50, left: 50, right: 50),
-              child: serviceProviders.length != 0
+              child: (serviceProviders.length != 0 &&
+                      serviceProviders.length != null &&
+                      routeArgs.length != 0 &&
+                      routeArgs.length != null &&
+                      routeArgs != null &&
+                      routeArgs != 0 &&
+                      serviceProviders != null &&
+                      serviceProviders != 0)
                   ? ListView.builder(
                       itemBuilder: (BuildContext context, index) {
                         return ServiceProvidersScreenTiles(

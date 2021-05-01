@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:in_covid/screens/home_screen_splash_screen.dart';
 import 'package:in_covid/screens/services_screen.dart';
 
 class HomeScreenTiles extends StatelessWidget {
@@ -6,16 +7,24 @@ class HomeScreenTiles extends StatelessWidget {
   final String cityImg;
   final String cityUrl;
   final String imageUrl;
+  final List data;
 
-  HomeScreenTiles(this.city, this.cityImg, this.cityUrl, this.imageUrl);
+  HomeScreenTiles(
+      this.city, this.cityImg, this.cityUrl, this.imageUrl, this.data);
 
   void nextScreen(BuildContext context) {
-    Navigator.of(context).pushNamed(ServicesScreen.routeName,
-        arguments: {"state": city, "stateUrl": cityUrl, "imageUrl": imageUrl});
+    Navigator.of(context).pushNamed(HomeScreenSplashScreen.routeName,
+        arguments: {
+          "state": city,
+          "stateUrl": cityUrl,
+          "imageUrl": imageUrl,
+          "data": data
+        });
   }
 
   @override
   Widget build(BuildContext context) {
+    city.replaceAll("%20", " ");
     return InkWell(
       onTap: () => nextScreen(context),
       splashColor: Color.fromRGBO(255, 130, 130, 1),
@@ -27,8 +36,8 @@ class HomeScreenTiles extends StatelessWidget {
         child: Column(
           children: [
             ClipRRect(
-              child: Image.network(
-                cityImg,
+              child: Image.asset(
+                "assets/images/${city}.png",
                 height: 50,
                 fit: BoxFit.cover,
               ),
